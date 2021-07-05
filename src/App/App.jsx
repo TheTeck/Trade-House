@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import SignupPage from '../SignupPage/SignupPage';
-import LoginPage from '../LoginPage/LoginPage';
-import userService from '../../utils/userService'
+import SignupPage from '../pages/SignupPage/SignupPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import userService from '../utils/userService'
 
 
 function App() {
