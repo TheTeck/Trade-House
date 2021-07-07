@@ -4,10 +4,52 @@ const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 6;
 
 const userSchema = new mongoose.Schema({
-  username: {type: String, required: true, lowercase: true, unique: true},
-  email: {type: String, required: true, lowercase: true, unique: true},
-  password: String,
-  photoUrl: String  // string from aws!
+  username: {
+    type: String, 
+    required: true, 
+    lowercase: true, 
+    unique: true
+  },
+  email: {
+    type: String, 
+    required: true, 
+    lowercase: true, 
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  photoUrl: {
+    type: String,
+    required: true
+  },
+  proposals: { // All of the user's own proposals
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Thing'
+      }
+    ],
+    default: []
+  },
+  bids: {       // All the things the user has bid on
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Thing'
+      }
+    ],
+    default: []
+  },
+  likes: {    // All the things the user has liked
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Thing'
+      }
+    ]
+  }
 }, {
   timestamps: true
 });
