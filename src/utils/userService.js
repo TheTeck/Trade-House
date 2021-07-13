@@ -45,10 +45,20 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
+function removeUser (id) {
+  return fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  }).then(res => res.json());
+}
+
 
 export default {
   signup, 
   logout,
   login,
-  getUser
+  getUser,
+  removeUser,
 };
