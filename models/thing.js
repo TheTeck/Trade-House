@@ -55,8 +55,11 @@ const thingSchema = new mongoose.Schema({
         ],
         default: []
     },
-    comments: [commentSchema]
-  })
+    comments: {
+        type: [commentSchema],
+        default: []
+    }
+});
  
 
 module.exports = mongoose.model('Thing', thingSchema);
