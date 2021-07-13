@@ -9,7 +9,7 @@ module.exports = {
 };
 
 function create(req, res) {  
-    const filePath = `${uuidv4()}/${req.file.originalname}`
+    const filePath = `${uuidv4()}/${req.file.originalname}`;
     const params = {Bucket: process.env.BUCKET_NAME, Key: filePath, Body: req.file.buffer};
   
     s3.upload(params, async function(err, data) {
@@ -20,12 +20,10 @@ function create(req, res) {
                 description: req.body.description,
                 owner: req.user
             });
-
-            const newThing = new Thing(thing)
-            await newThing.save()
-            res.status(201).json({thing: newThing})
+            await thing.save();
+            res.status(201).json({thing: newThing});
         } catch (error) {
             res.json({message: error});
         }
-    }
-}
+    })
+};
