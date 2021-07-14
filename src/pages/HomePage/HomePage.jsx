@@ -18,7 +18,7 @@ function HomePage({ user }) {
     }
 
     return (
-        <div>
+        <div className="homepage-container">
             {user.username}
             <div onClick={handleDeleteUser}>Delete User</div>
         </div>

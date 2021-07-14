@@ -1,0 +1,6 @@
+.sidebar-container {
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  background-color: aqua;
+}

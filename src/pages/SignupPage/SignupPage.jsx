@@ -33,7 +33,6 @@ export default function SignUpPage(props){
 
     // Photos have to be sent over as FormData
     // They send over the form in multiparts (multipe requests to the server)
-
     const formData = new FormData();
     formData.append('photo', selectedFile);
 
